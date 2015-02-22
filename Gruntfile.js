@@ -5,7 +5,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     latex: {
       options: {
-        haltOnError: true
+        haltOnError: true,
+        shellEscape: true
       },
       pdf: {
         options: {
