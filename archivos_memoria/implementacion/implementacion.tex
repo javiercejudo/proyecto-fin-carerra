@@ -52,7 +52,7 @@ simplísima introducción:
       document.write('Hola Mundo');
     </script>
     <noscript>
-      <p>Su navegador no tiene soporta para JavaScript, 
+      <p>Su navegador no tiene soporta para JavaScript,
       o este esta deshabilitado.</p>
     </noscript>
   </body>
@@ -87,7 +87,7 @@ Ajax está basado en estándares de Internet, y para su funcionamiento (figura
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/ajax.eps,width=5.28in}
+\epsfig{file=imagenes/ajax,width=5.28in}
 \caption{Funcionamiento de Ajax.}
 \label{fig:ajax}
 \end{figure}
@@ -185,7 +185,7 @@ todos los proyectos de la empresa (veáse la figura
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/ejemplo_PHPExcel.eps,width=3.5in}
+\epsfig{file=imagenes/ejemplo_PHPExcel,width=3.5in}
 \caption{Ejemplo de hoja de cálculo compleja.}
 \label{fig:ejemplo_PHPExcel}
 \end{figure}
@@ -261,7 +261,7 @@ VALUES
 
 \begin{lstlisting}
 function laborables($f_ini_unix,$f_fin_unix) {
-	$current_date = $f_ini_unix; 
+	$current_date = $f_ini_unix;
 	$num = 0;
 	while ($current_date <= $f_fin_unix) {
 		$dia = date('w',$current_date);
@@ -394,7 +394,7 @@ Debe ser posible visualizar cuántas horas tiene asignadas un recurso en
 cada uno de sus registro anuales, así como el total de horas libres (sin
 asignar hasta el total de su convenio). El concepto de total de horas asignadas
 se define como la suma de los siguientes valores:
- 
+
 \begin{enumerate}
 \item En los proyectos en fase de presentación, las horas presentadas aunque
 sean cero, siempre que no se hayan imputado horas aprobadas o justificadas. En
@@ -418,11 +418,11 @@ SELECT estado,
 	horas,
 	horas_aprobadas,
 	horas_justificadas
-FROM personal_horas ph join actividad ac on 
-	ph.id_actividad=ac.id join proyectos pr on 
+FROM personal_horas ph join actividad ac on
+	ph.id_actividad=ac.id join proyectos pr on
 	ac.proyecto=pr.id
-WHERE ph.id_personal=$id_personal and 
-	ph.anio=$anio and 
+WHERE ph.id_personal=$id_personal and
+	ph.anio=$anio and
 	ph.mes=$mes
 \end{lstlisting}
 
@@ -442,7 +442,7 @@ for ($i = 0; $i < $numero_de_filas; $i++) {
 	{
 		$horas_ocupadas += $filas[$i]['horas_justificadas'];
 	}
-	elseif ($filas[$i]['horas_aprobadas'] != 0 || 
+	elseif ($filas[$i]['horas_aprobadas'] != 0 ||
 		$filas[$i]['estado'] == "APROBADO")
 	{
 		$horas_ocupadas += $filas[$i]['horas_aprobadas'];

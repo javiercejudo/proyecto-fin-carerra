@@ -40,7 +40,7 @@ muchas tareas distintas.
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/usabilidad.eps,width=3.5in}
+\epsfig{file=imagenes/usabilidad,width=3.5in}
 \caption{Importancia de las dimensiones de usabilidad.}
 \label{fig:usabilidad}
 \end{figure}
@@ -124,7 +124,7 @@ siguientes datos:
   \item Horas aprobadas.
   \item Horas justificadas.
   \end{itemize}
- 
+
 \item Se podrán crear nuevas actividades empleado mediante el registro de
 sus datos. Para evitar confusiones, y ya que, en general, no va a tener sentido,
 no puede haber dos actividades con el mismo nombre en el sistema. Cada actividad
@@ -158,7 +158,7 @@ usuarios).
 cada uno de sus registros anuales, así como el total de horas libres (sin
 asignar hasta el total de su convenio). El concepto de total de horas asignadas
 no es trivial y se define como la suma de los siguientes valores:
- 
+
 \begin{enumerate}
   \item En los proyectos en fase de presentación, las horas presentadas aunque
 sean cero, siempre que no se hayan imputado horas aprobadas o justificadas. En
@@ -365,7 +365,7 @@ expedientes, a sus facturas y a sus actividades.
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/enlaces_buscador.eps,width=5.28in}
+\epsfig{file=imagenes/enlaces_buscador,width=5.28in}
 \caption{Enlaces de interés desde el buscador de Google.}
 \label{fig:enlaces_buscador}
 \end{figure}
@@ -412,7 +412,7 @@ necesario elaborar un caso de uso específico.
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/CU_recursos.eps,width=5.28in}
+\epsfig{file=imagenes/CU_recursos,width=5.28in}
 \caption{Diagrama de casos de uso para los recursos.}
 \label{fig:CU_recursos}
 \end{figure}
@@ -431,7 +431,7 @@ parámetros\\\hline
 \textbf{Actores} & Usuario normal \newline Usuario administrador\\\hline
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver el módulo de recursos\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los datos en los campos de búsqueda.
    \item El usuario comprueba si la búsqueda es satisfactoria, y si no lo es,
@@ -450,7 +450,7 @@ atributos propios de un recurso están descritos en la sección
 \textbf{Actores} & Usuario normal \newline Usuario administrador\\\hline
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver el módulo de recursos\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los atributos del nuevo recurso.
    \item El usuario comprueba que el recurso se ha añadido correctamente; si
@@ -474,7 +474,7 @@ atributos propios de un recurso están descritos en la sección
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver el módulo de recursos\newline El usuario ha
 buscado el recurso usando el caso de uso «Buscar recurso»\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los atributos actualizados del recurso.
    \item El usuario comprueba que el recurso se ha modificado correctamente; si
@@ -498,7 +498,7 @@ sistema. Los atributos propios de un recurso están descritos en la sección
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver el módulo de recursos \newline El usuario ha
 buscado un recurso existente usando el caso de uso «Buscar recurso».\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los atributos del nuevo registro anual.
    \item El usuario comprueba que el registro se ha añadido correctamente; si
@@ -523,7 +523,7 @@ del sistema. Los atributos propios de un recurso están descritos en la sección
 tiene permisos para ver el módulo de recursos\newline El usuario ha
 buscado el recurso que tiene registros anuales usando el caso de uso «Buscar
 recurso»\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los atributos actualizados del registro anual.
    \item El usuario comprueba que el recurso se ha modificado correctamente; si
@@ -545,7 +545,7 @@ sus registros anuales. \\\hline
 \textbf{Actores} & Usuario administrador\\\hline
 \textbf{Precondiciones} & El administrador ha
 buscado el recurso usando el caso de uso «Buscar recurso»\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El administrador elige la opción de borrar recurso.
    \item El administrador confirma que desea borrar el recurso seleccionado.
@@ -567,7 +567,7 @@ del sistema.
 \textbf{Actores} & Usuario administrador\\\hline
 \textbf{Precondiciones} & El administrador ha buscado el recurso que tiene
 registros anuales usando el caso de uso «Buscar recurso»\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El administrador elige la opción de borrar registro anual.
    \item El administrador confirma que desea borrar el registro anual.
@@ -586,7 +586,7 @@ horas asignadas a ese año.\\\hline
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/CU_actividades.eps,width=5in}
+\epsfig{file=imagenes/CU_actividades,width=5in}
 \caption{Diagrama de casos de uso para las actividades.}
 \label{fig:CU_actividades}
 \end{figure}
@@ -606,7 +606,7 @@ parámetros\\\hline
 \textbf{Actores} & Usuario normal \newline Usuario administrador\\\hline
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver el módulo de actividades. \\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los datos en los campos de búsqueda.
    \item El usuario comprueba si la búsqueda es satisfactoria, y si no lo es,
@@ -626,7 +626,7 @@ atributos propios de una actividad están descritos en la sección
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver el módulo de actividades. El proyecto al que desea
 añadir la actividad no está concluido. \\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los atributos de la nueva actividad.
    \item El usuario comprueba que la actividad se ha añadido correctamente; si
@@ -651,7 +651,7 @@ atributos propios de una actividad están descritos en la sección
 tiene permisos para ver el módulo de actividades. \newline El usuario ha
 buscado la actividad usando el caso de uso «Buscar recurso». \newline La
 actividad pertenece a un proyecto que no está concluido.\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario introduce los atributos actualizados de la actividad.
    \item El usuario comprueba que la actividad se ha modificado correctamente;
@@ -672,7 +672,7 @@ con el mismo nombre en el mismo proyecto.\\\hline
 \textbf{Actores} & Usuario administrador\\\hline
 \textbf{Precondiciones} & El administrador ha
 buscado la actividad usando el caso de uso «Buscar actividad».\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El administrador elige la opción de borrar actividad.
    \item El administrador confirma que desea borrar la actividad seleccionada.
@@ -690,7 +690,7 @@ asignadas a cualquier recurso.\\\hline
 
 \begin{figure}
 \centering
-\epsfig{file=imagenes/CU_horas.eps,width=5.28in}
+\epsfig{file=imagenes/CU_horas,width=5.28in}
 \caption{Diagrama de casos de uso para las gestión de horas.}
 \label{fig:CU_horas}
 \end{figure}
@@ -710,7 +710,7 @@ según una serie de parámetros. \\\hline
 \textbf{Actores} & Usuario normal \newline Usuario administrador\\\hline
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver los módulos de actividades o recursos.\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario pincha sobre el valor de horas que desea visualizar en
 cualquier sitio dentro de los módulos de recursos o actividades.
@@ -732,7 +732,7 @@ una actividad. \\\hline
 tiene permisos para ver los módulos de actividades o recursos. El
 recurso tiene registros anuales para el periodo que dura la actividad,
 que debe pertenecer a un proyecto no concluido.\\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario selecciona la opción asignar horas en la actividad deseada.
    \item El usuario elige el recurso al que se van a asignar las horas, el
@@ -760,7 +760,7 @@ anterior. \\\hline
 tiene permisos para ver los módulos de actividades o recursos. Las horas
 asignadas son modificables según las restricciones por el estado del
 proyecto. \\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario pincha sobre las horas que desea modificar en el detalle
 mensual de horas.
@@ -783,7 +783,7 @@ cliente en todos los proyectos.
 \textbf{Actores} & Usuario normal \newline Usuario administrador\\\hline
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver los módulos de actividades o recursos. \\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario pincha sobre el enlace de generación de la hoja de cálculo.
    \item El usuario abre o guarda el archivo (el comportamiento varía según el
@@ -806,7 +806,7 @@ archivo.
 \textbf{Actores} & Usuario normal \newline Usuario administrador\\\hline
 \textbf{Precondiciones} & El usuario está autenticado en el sistema y
 tiene permisos para ver los módulos de actividades o recursos. \\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El usuario pincha sobre el enlace de generación de la hoja de cálculo
 adecuado: presentación, aprobación o justificación.
@@ -828,7 +828,7 @@ actividad por actividad y empleado por empleado.
 \textbf{Actores} & Usuario administrador\\\hline
 \textbf{Precondiciones} & El administrador ha
 buscado la actividad usando el caso de uso «Buscar actividad». \\\hline
-\textbf{Pasos} & 
+\textbf{Pasos} &
   \begin{enumerate}
    \item El administrador pincha sobre el enlace de traslación de horas
 adecuado.
