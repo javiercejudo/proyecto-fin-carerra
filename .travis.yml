@@ -7,3 +7,5 @@ before_install:
   - sudo apt-get install -y texlive texlive-latex-extra texlive-lang-spanish
 script:
   - grunt
+after_script:
+  - cat dist/main.log
