@@ -1,0 +1,3 @@
+[submodule "vagrant-texlive-full"]
+	path = vagrant-texlive-full
+	url = git@github.com:javiercejudo/vagrant-texlive-full.git
