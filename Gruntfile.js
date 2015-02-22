@@ -4,7 +4,9 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     latex: {
-      options: {},
+      options: {
+        haltOnError: true
+      },
       pdf: {
         options: {
           outputDirectory: 'dist'

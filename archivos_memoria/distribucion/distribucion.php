@@ -23,7 +23,7 @@ function laborables($f_ini_uni,$f_fin_uni) {
 
 function coincide ($a,$b) {
 	if(abs($a - $b) < 0.01)
-		return "<span style='color:green;font-weight:bold;'>Sí!</span>";
+		return "<span style='color:green;font-weight:bold;'>Si!</span>";
 	return "<span style='color:red;font-weight:bold;'>No!</span>";
 }
 
@@ -41,20 +41,20 @@ for($i=1; $i <= $numero_iteraciones; $i++) {
 	$fecha_fin = mktime(0,0,0,$mes_inicio,$dia_inicio + rand(0,800),$anio_inicio);
 	$duracion_en_dias = laborables($fecha_inicio,$fecha_fin);
 	$duracion_en_horas = $duracion_en_dias * rand(1,900) / 100;
-	
+
 	echo "<h3>Datos de la prueba numero $i:</h3>\n";
 	echo "Fecha de inicio: " . date('d/m/Y',$fecha_inicio) . "<br>\n";
 	echo "Fecha de fin: " . date('d/m/Y',$fecha_fin) . "<br>\n";
 	echo "Duracion en dias: " . $duracion_en_dias . "<br>\n";
 	echo "Horas limite: " . ($duracion_en_dias * 8) . "<br>\n";
-	
+
 	$horas_dia = $duracion_en_horas / $duracion_en_dias;
 	if($duracion_en_horas > $duracion_en_dias * 8) {
 		$duracion_en_horas = $duracion_en_dias * 8;
 		$horas_dia = 8;
-	}	
+	}
 	$duracion_en_horas_original = $duracion_en_horas;
-		
+
 	echo "Duracion en horas: " . $duracion_en_horas . "<br>\n";
 	echo "Horas por dia: " . $horas_dia . "<br>\n";
 
@@ -62,9 +62,9 @@ for($i=1; $i <= $numero_iteraciones; $i++) {
 	$num_meses_completos = ($num_anios * 12) + (date('n',$fecha_fin) - date('n',$fecha_inicio)) - 1;
 	echo "Anios involucrados: " . ($num_anios+1) . "<br>\n";
 	echo "Numero meses intermedios: " . $num_meses_completos . "<br>\n";
-	
+
 	$horas_asignadas = 0;
-	
+
 	if ($num_meses_completos == -1){
 		$horas_aux = $duracion_en_horas;
 		if($horas_aux > $duracion_en_dias * 8)
@@ -83,7 +83,7 @@ for($i=1; $i <= $numero_iteraciones; $i++) {
 			$horas_aux = $duracion_en_horas;
 		$duracion_en_horas -= $horas_aux;
 		$horas_asignadas += $horas_aux;
-		
+
 		for ($mes_actual = date('n',$fecha_inicio); $mes_actual < date('n',$fecha_inicio) + $num_meses_completos; $mes_actual++) {
 			$fecha_aux = mktime(0,0,0,$mes_actual + 1,1,date('Y',$fecha_inicio));
 			$laborables = laborables($fecha_aux,mktime(0,0,0,$mes_actual + 2,0,date('Y',$fecha_inicio)));
@@ -100,14 +100,14 @@ for($i=1; $i <= $numero_iteraciones; $i++) {
 			$duracion_en_horas -= $horas_aux;
 			$horas_asignadas += $horas_aux;
 		}
-		
+
 		$laborables=laborables(mktime(0,0,0,date('n',$fecha_fin),1,date('Y',$fecha_fin)),$fecha_fin);
 		$horas_aux = $duracion_en_horas;
 		if($horas_aux > $laborables * 8)
 			$horas_aux = $laborables*8;
 		$horas_asignadas += $horas_aux;
 	}
-	
+
 	echo "Horas asignadas: " . $horas_asignadas . " <br>\n";
 	echo "Exito?: " . coincide($duracion_en_horas_original,
 $horas_asignadas) . "<br>\n";
@@ -122,5 +122,5 @@ echo "<h1>Resultados</h1>\n";
 
 echo "Errores: " . $errores . " <br>\n";
 echo "Tasa de errores: " . ($errores / $numero_iteraciones) * 100 . "% \n";
-	
+
 ?>

@@ -1,4 +1,5 @@
 dist
 !dist/main.pdf
+!dist/*/.gitkeep
 *-converted-to.pdf
 node_modules
