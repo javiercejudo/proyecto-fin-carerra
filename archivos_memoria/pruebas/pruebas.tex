@@ -1,0 +1,174 @@
+Se ha hecho notar en anteriores capítulos que a pesar de no realizarse un
+plan de pruebas exhaustivo y perfectamente documentado para cada parte del
+desarrollo, la estrecha colaboración con el cliente ha hecho posible probar cada
+evolución del código en un entorno prácticamente real.
+
+Por supuesto, antes de informar al cliente de cualquier progreso en el
+desarrollo, el proyectante realizaba pruebas básicas: desde que la interfaz
+gráfica era perfectamente visible en los principales navegadores (Internet
+Explorer 7+, Mozilla Firefox y Google Chrome, el empleado de forma preferida en
+la empresa), hasta que los datos se guardaban y recuperaban correctamente de la
+base de datos, pasando por la correcta solicitud de datos obligatorios y buen
+comportamiento con datos de entrada inesperados.
+
+De este manera, el módulo de personal fue probado por los empleados de
+Ingeniería e Innovación a modo de registro de empleados --todavía no podían
+asignarse horas ni guardar datos sobre actividades--, desde mediados de
+agosto hasta diciembre del 2010. Aunque la funcionalidad era todavía muy básica,
+el registro de los datos anuales de los empleados resultó útil por la
+centralización de este tipo de información.
+
+Similarmente, antes de que fuera posible conectar las actividades con los
+empleados, se introdujeron datos de las actividades (planes de trabajo) de
+proyectos concluidos a modo de testeo general, hecho del que se encargó
+principalmente el proyectante durante su periodo de prácticas en la empresa.
+
+Finalmente, una vez integrado todo el sistema, este empezó a utilizarse de
+modo casi inmediato, ya que hubo que comenzar a justificar los primeros
+proyectos con la nueva metodología requerida por la ADER, que se
+describió con cierto detalle en la sección  \ref{sec:necesidad} al discutir la
+necesidad del proyecto.
+
+Apenas un mes después de que la herramienta comenzase a utilizarse en casos
+reales y actuales y se hubieran reunido algunas sugerencias de modificación,
+el proyectante sufrió una indisponibilidad familiar entre enero y febrero de
+2011, periodo durante el cual cesó cualquier actividad del proyectante en
+relación con la herramienta. Sin embargo, Ingeniería e Innovación siguió
+utilizando el sistema sin mayores problemas.
+
+\textit{Sin mayores problemas} no quiere decir \textit{sin problemas}, y hubo
+uno en particular que, sin ser especialmente molesto, resultó de gran interés
+para el proyectante hasta el punto de realizar la prueba que se detalla en la
+siguiente sección.
+
+\section{Prueba de distribución de horas y \textit{bug} horario}
+
+El problema observado es que al pedirle a la herramienta que distribuyera un
+número de horas en un espacio de tiempo, había ocasiones ($\sim 5\%$, como se
+comprobará) en que no se distribuían todas las horas, tal y como uno esperaría.
+Había una diferencia entre lo que se pedía distribuir y el resultado de la
+distribución.
+
+Se ha comentado anteriormente que la aplicación corrige los excesos a nivel del
+proyecto: si se intenta asignar 300 horas a un empleado en un mismo proyecto en
+un mes, esa cifra se va a reducir al número de días laborables del mes
+multiplicadas por ocho. No es esa la fuente del error, pues es trivial, sino
+que este se observó incluso cuando, en teoría, debería haber sido posible una
+asignación total.
+
+Dado que el algoritmo de distribución de horas (véase la sección
+\ref{sec:algoritmo_distribucion} para recuperar los detalles) redondea al alza a
+múltiplos de 5 cuando es posible, tiene en cuenta el número de días laborables
+del mes..., resultaba difícil encontrar un error evidente en el código y
+también datos de entrada que dieran error, por
+lo que se escribió el \textit{script} del Apéndice
+\ref{apx:script_distribucion}.
+
+Los datos para el test son generados automáticamente, y se han
+considerado suficientemente aleatorios dada la repetición periódica de los
+calendarios (hay 14 distintos: el año puede comenzar en cualquiera de los 7 días
+de la semana, y puede ser bisiesto o no):
+
+\begin{lstlisting}
+$mes_inicio = rand(1,12);
+$anio_inicio = rand(2010,2025);
+$dia_inicio = rand(1,date('t',mktime(0,0,0,$mes_inicio,1,$anio_inicio)));
+$fecha_inicio = mktime(0,0,0,$mes_inicio,$dia_inicio,$anio_inicio);
+$fecha_fin = mktime(0,0,0,$mes_inicio,$dia_inicio + rand(0,800),$anio_inicio);
+$duracion_en_dias = laborables($fecha_inicio,$fecha_fin);
+$duracion_en_horas = $duracion_en_dias * rand(1,900) / 100;
+\end{lstlisting}
+
+En el cuadro \ref{cua:resultados_script} se
+muestran los resultados tras ejecutar el script original 10 veces.
+
+\begin{table}
+\centering
+\footnotesize
+\begin{tabular}{|c|c|c|c|}\hline
+\textbf{Prueba} $\bf{n}$ & \textbf{Iteraciones} & \textbf{Errores} &
+\textbf{\% Errores} \\\hline\hline
+1 &  50 &   0 & 0\% \\\hline
+2 &  50 &   4 & 8\% \\\hline
+3 &  50 &   1 & 2\% \\\hline
+4 &  50 &   3 & 6\% \\\hline
+5 &  50 &   1 & 2\% \\\hline
+6 &  50 &   4 & 8\% \\\hline
+7 &  50 &   1 & 2\% \\\hline
+8 &  50 &   5 & 10\% \\\hline
+9 &  50 &   3 & 6\% \\\hline
+10 &  50 &   3 & 6\% \\\hline
+11 &  50 &   5 & 10\% \\\hline
+12 &  50 &   2 & 4\% \\\hline
+13 &  50 &   0 & 0\% \\\hline
+14 &  50 &   4 & 8\% \\\hline
+15 &  50 &   2 & 4\% \\\hline
+16 &  50 &   2 & 4\% \\\hline
+17 &  50 &   4 & 8\% \\\hline
+18 &  50 &   1 & 2\% \\\hline
+19 &  50 &   0 & 0\% \\\hline
+20 &  50 &   3 & 6\% \\\hline
+21 &  50 &   2 & 4\% \\\hline
+22 &  50 &   1 & 2\% \\\hline
+23 &  50 &   0 & 0\% \\\hline
+24 &  50 &   2 & 4\% \\\hline
+25 &  50 &   3 & 6\% \\\hline
+26 &  50 &   2 & 4\% \\\hline
+27 &  50 &   1 & 2\% \\\hline
+28 &  50 &   2 & 4\% \\\hline
+29 &  50 &   2 & 4\% \\\hline
+30 &  50 &   4 & 8\% \\\hline\hline
+\textbf{Total} &  \textbf{1500} &  \textbf{67} & \textbf{4.467\%} \\\hline
+\end{tabular}
+\caption{Prueba del algoritmo original.}
+\label{cua:resultados_script}
+\end{table}
+
+A continuación, un resultado generado aleatoriamente que daba error:
+
+\begin{itemize}
+\item Fecha de inicio: 15/02/2011
+\item Fecha de fin: 11/04/2012
+\item Horas límite: 2368
+\item Duración en horas: 2368
+\item Horas por día: 8
+\item Horas asignadas: 2360 
+\item ¿Éxito?: No!
+\item Diferencia: -8
+\end{itemize}
+
+Tras probar estos valores con una asignación en la herramienta, se vio que los
+problemas venían siempre en los meses de marzo y octubre. «¡Eureka! El problema
+es el cambio de hora». Al comprobar día a día si era laborable o no, la función
+que se describió en la sección \ref{sec:algoritmo_distribucion} pasaba al día
+siguiente de la siguiente forma:
+
+\begin{lstlisting}
+$current_date += 86400; //24*60*60=86400
+\end{lstlisting}
+
+Sin embargo, los días del cambio de hora NO tienen 24 horas, y PHP lo sabe, de
+manera que se creaban errores cuando la exigencia de horas era máxima
+(dedicación del empleado a jornada completa). La solución, pasar al día
+siguiente de la siguiente manera:
+
+\begin{lstlisting}
+$current_date = 
+	mktime(0,0,0,
+		date('m',$current_date),
+		date('d',$current_date)+1,
+		date('Y',$current_date)
+	);
+\end{lstlisting}
+
+Contribuía de manera vital al error que tanto las fechas de inicio como de fin
+se pasaban en formato dd/mm/aaaa 00:00. Si se hubiera usado la notación
+dd/mm/aaaa 23:59 para la fecha de fin, tampoco hubiese surgido el problema.
+
+El proyectante ha ejecutado el \textit{script} modificado y una vez superadas
+las 2000 pruebas no se había encontrado ningún error, es decir, siempre se han
+guardado tantas horas como se había requerido, después de corregir a los
+límites máximos mensuales.
+
+
+

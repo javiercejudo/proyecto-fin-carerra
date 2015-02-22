@@ -1,0 +1,170 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{pst-all}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[figuresright]{rotating}
+\usepackage{wasysym}
+\usepackage{pifont}
+\usepackage{color}
+\usepackage{listings}
+
+\lstset{ %
+language=PHP,                   % the language of the code
+basicstyle=\footnotesize,       % the size used for thecode
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers.
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color.
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding underscores
+frame=single,                     % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if breaks should happen at whitespace
+% keywordstyle=\color{red},
+% commentstyle=\color{blue},
+% stringstyle=\color{green}
+}
+
+\linespread{1.3}
+
+\begin{document}
+
+\include{portada/portada}
+
+\thispagestyle{empty}
+\section*{Resumen}
+
+La presente memoria recorre los aspectos más relevantes del proceso de
+desarrollo de una herramienta de apoyo para la gestión de recursos humanos en
+en el ámbito de los proyectos I+D, desde la recolección de requisitos hasta
+los detalles de implementación de los algoritmos más representativos.
+
+El desarrollo surge de una necesidad concreta de la empresa \textit{Arnedo \&
+Belmonte Ingeniería e Innovación, S.L.}, y ha sido completamente desarrollada
+por Javier Cejudo bajo la tutoría del Dr. Ángel Luis Rubio.
+
+\quad
+
+\textbf{Palabras clave:}
+
+\textit{aplicación web, gestión de recursos humanos, apoyo a proyectos I+D}
+
+% Less detailed TOC
+\setcounter{tocdepth}{2}
+
+\tableofcontents
+
+\newpage\listoffigures
+\label{ind:figuras}
+
+\newpage\listoftables
+\label{ind:cuadros}
+
+\chapter{Introducción}
+\label{chp:introduccion}
+\thispagestyle{empty}
+\noindent \textit{En este capítulo se introducirá brevemente el proyecto, su
+alcance, las motivaciones y necesidades que han desembocado en su ejecución y se
+analizará un caso práctico acerca de qué se quiere decir cuando se clasifica
+como una herramienta ``de apoyo''.}
+\include{introduccion/introduccion}
+
+\chapter{Descripción general del proyecto}
+\label{chp:descripcion}
+\thispagestyle{empty}
+\noindent \textit{En este capítulo se detallarán los elementos más generales
+en relación con el proyecto, desde los interesados, el objetivo, las
+tecnologías que se emplearán y otros hechos relevantes.}
+\include{descripcion/descripcion}
+
+\chapter{Calendario}
+\label{chp:calendario}
+\thispagestyle{empty}
+\noindent \textit{Este capítulo supone un repaso al calendario de ejecución
+real del proyecto desde los primeros contactos con el cliente hasta la
+preparación y entrega de esta memoria, con una breve explicación de cada fase
+de desarrollo.}
+\include{calendario/calendario}
+
+\chapter{Análisis}
+\label{chp:analisis}
+\thispagestyle{empty}
+\noindent \textit{En este capítulo se repasarán los requisitos y las
+especificaciones tanto no funcionales como funcionales de cada parte de la
+herramienta, y se definirán los casos de uso más representativos.}
+\include{requisitos/requisitos}
+
+\chapter{Diseño}
+\label{chp:diseno}
+\thispagestyle{empty}
+\noindent \textit{En este capítulo se darán detalles acerca de las decisiones
+tomadas sobre el diseño de la interfaz, de la base de datos y se detallará con
+algo más de precisión el funcionamiento interno de la herramienta en relación
+con los casos de uso del capítulo anterior.}
+\include{diseno/diseno}
+
+\chapter{Implementación}
+\label{chp:implementacion}
+\thispagestyle{empty}
+\noindent \textit{En este capítulo se describirán muy brevemente las
+principales tecnologías usadas en el desarrollo, se darán algunos datos
+acerca de las librerías empleadas y se explicarán con cierto nivel de detalle
+los algoritmos más representativos.}
+\include{implementacion/implementacion}
+
+\chapter{Pruebas}
+\label{chp:pruebas}
+\thispagestyle{empty}
+\noindent \textit{En este capítulo se explicará cuál ha sido la metodología de
+las pruebas y se detallará un test del algoritmo más representativo, el de la
+distribución mensual de horas.}
+\include{pruebas/pruebas}
+
+\chapter{Consideraciones y conclusiones}
+\label{chp:conclusiones}
+\thispagestyle{empty}
+\noindent \textit{En este último capítulo se hará un repaso a los
+conocimientos adquiridos, el futuro del proyecto y del proyectante y se darán
+algunos datos relativos al uso de la herramienta hasta la fecha actual.}
+\include{conclusiones/conclusiones}
+
+\include{bibliografia/bibliografia}
+
+\appendix
+
+\chapter{Script del test de distribución de horas}
+\label{apx:script_distribucion}
+\thispagestyle{empty}
+\include{distribucion/distribucion}
+
+\chapter{Declaración del cliente}
+\label{apx:declaracion_cliente}
+\thispagestyle{empty}
+\include{cliente/cliente}
+
+\chapter{Manual de usuario}
+\label{apx:manual_usuario}
+\thispagestyle{empty}
+\include{manual/manual}
+
+\chapter{Software utilizado}
+\label{apx:software_utilizado}
+\thispagestyle{empty}
+\include{programas/programas}
+
+% \chapter{Sobre la protección de datos (LODP)}
+% \label{apx:lopd}
+% \thispagestyle{empty}
+% \include{leydatos/leydatos}
+
+\end{document}
