@@ -1,11 +1,15 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
+env:
+  matrix:
+  - secure: AOffYPg5K6cXQb5O3C7iLQIlhx4IH1N4uWlUxhUUHeVDazbff9WNvozHS3dodYCO6lOPgRI9TYOTQZSkmSB5heXIqeULFEfiGYm00FJhl7QNFm274dyMLoyizWYUZFAsHHDhxGbnJmROOPSVbHtTOKGBMhlZLFHg3522LCO+vjc=
+  - secure: ehfp7w8RJ0uYUQMDLGXW9sboVEs1Wd2qJe0oqB5JvZ5IiD5P0d9s/ysqwXiGYn3XBrAYtONE749dc24+Z7u4ymWCmV07ET9r95DNU88pJ1a/+jQCGrAu+PXe7bssYaY8gokGFXqg3TNv9lPDHHH/4JKGfZC7Njt2jVR84qS334I=
 before_install:
-  - npm install -g grunt-cli
-  - sudo apt-get update -qq
-  - sudo apt-get install -y texlive texlive-latex-extra texlive-lang-spanish
+- npm install -g grunt-cli
+- sudo apt-get update -qq
+- sudo apt-get install -y texlive texlive-latex-extra texlive-lang-spanish
 script:
-  - grunt
-after_script:
-  - cat dist/main.log
+- grunt
+after_success:
+- grunt aws_s3:pdf
